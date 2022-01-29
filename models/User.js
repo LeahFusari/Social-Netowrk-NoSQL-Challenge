@@ -1,4 +1,7 @@
 const { Schema, model } = require('mongoose');
+var mongoose = require('mongoose');
+require('mongoose-type-email');
+
 // const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
@@ -10,11 +13,10 @@ const UserSchema = new Schema(
       unique: true
     },
     email: {
-      type: String,
+      type: mongoose.SchemaTypes.Email,
       required: 'You did not enter an email.',
       trim: true,
       unique: true,
-      validate: [ isEmail, 'invalid email format' ]
     },
     createdAt: {
       type: Date,

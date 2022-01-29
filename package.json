@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express": "^4.17.2",
-    "mongoose": "^6.1.8"
+    "mongoose": "^6.1.8",
+    "mongoose-type-email": "^1.1.2"
   },
   "scripts": {
     "start": "nodemon server.js"
