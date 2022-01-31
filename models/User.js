@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 var mongoose = require('mongoose');
 require('mongoose-type-email');
 
-// const dateFormat = require('../utils/dateFormat');
+const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
@@ -14,14 +14,14 @@ const UserSchema = new Schema(
     },
     email: {
       type: mongoose.SchemaTypes.Email,
-      required: 'You did not enter an email.',
+      required: 'You did not enter a properly formatted email address.',
       trim: true,
       unique: true,
     },
     createdAt: {
       type: Date,
       default: Date.now,
-    //   get: createdAtVal => dateFormat(createdAtVal)
+      get: createdAtVal => dateFormat(createdAtVal)
     },
     thoughts: [
         {

@@ -5,10 +5,6 @@ const thoughtController = {
   // get all thoughts
   getAllThoughts(req, res) {
     Thought.find({})
-      // .populate({
-      //   path: 'users',
-      //   select: '-__v'
-      // })
       .select('-__v')
       .sort({ _id: -1 })
       .then(dbUserData => res.json(dbUserData))
@@ -107,8 +103,6 @@ const thoughtController = {
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
     )
-      // .then(dbUserData => res.json(dbUserData))
-      // .catch(err => res.json(err));
       .then((dbUserData) => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No reaction found with this id' });
