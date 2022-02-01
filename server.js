@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static('public'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Social-Network-NoSQL-Challenge', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/SocialNetwork', {
 //   useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
